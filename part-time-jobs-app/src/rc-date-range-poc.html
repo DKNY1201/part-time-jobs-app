@@ -34,12 +34,12 @@
 
         #container {
             display: grid;
-            grid-auto-rows: 10px;
+            grid-auto-rows: 20px;
             grid-gap: 10px;
-            grid-auto-flow: column;
+            grid-auto-flow: dense;
         }
 
-        .item {
+        .card {
             display: flex;
             flex-flow: column;
             justify-content: center;
@@ -47,23 +47,24 @@
             font-size: 2em;
             color: #ffeead;
             overflow: hidden;
+            cursor: pointer;
         }
 
-        .item.header {
+        .card.header {
             justify-content: center;
         }
 
-        .item h4 {
+        .card h4 {
             font-size: 1em;
             text-align: center;
         }
 
-        .item .description {
+        .card .description {
             font-size: 14px;
             display: none;
         }
 
-        .item.expanded .description {
+        .card.expanded .description {
             display: block;
         }
 
@@ -97,7 +98,12 @@
           Span: 2,
           Item: {
             Title: "Col 1 - Item 2",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         },
         {
@@ -105,7 +111,12 @@
           Span: 3,
           Item: {
             Title: "Col 1 - Item 3",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         },
         {
@@ -113,7 +124,12 @@
           Span: 1,
           Item: {
             Title: "Col 1 - Item 4",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         },
         {
@@ -121,7 +137,12 @@
           Span: 1,
           Item: {
             Title: "Col 1 - Item 5",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         },
         {
@@ -129,7 +150,12 @@
           Span: 1,
           Item: {
             Title: "Col 1 - Item 6",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         }
       ]
@@ -143,7 +169,12 @@
           Span: 1,
           Item: {
             Title: "Col 2 - Item 1",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         },
         {
@@ -151,7 +182,12 @@
           Span: 2,
           Item: {
             Title: "Col 2 - Item 2",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         },
         {
@@ -159,7 +195,12 @@
           Span: 1,
           Item: {
             Title: "Col 2 - Item 3",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         },
         {
@@ -167,7 +208,12 @@
           Span: 3,
           Item: {
             Title: "Col 2 - Item 4",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         },
         {
@@ -175,7 +221,12 @@
           Span: 3,
           Item: {
             Title: "Col 2 - Item 5",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         },
         {
@@ -183,7 +234,12 @@
           Span: 1,
           Item: {
             Title: "Col 2 - Item 6",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         }
       ]
@@ -197,7 +253,12 @@
           Span: 3,
           Item: {
             Title: "Col 3 - Item 1",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         },
         {
@@ -232,7 +293,12 @@
           Span: 2,
           Item: {
             Title: "Col 3 - Item 3",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         },
         {
@@ -240,7 +306,12 @@
           Span: 4,
           Item: {
             Title: "Col 3 - Item 4",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         },
         {
@@ -248,7 +319,12 @@
           Span: 2,
           Item: {
             Title: "Col 3 - Item 5",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         },
         {
@@ -256,7 +332,12 @@
           Span: 1,
           Item: {
             Title: "Col 3 - Item 6",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         }
       ]
@@ -270,7 +351,12 @@
           Span: 3,
           Item: {
             Title: "Col 4 - Item 1",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         },
         {
@@ -278,7 +364,12 @@
           Span: 1,
           Item: {
             Title: "Col 4 - Item 2",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         },
         {
@@ -286,7 +377,12 @@
           Span: 2,
           Item: {
             Title: "Col 4 - Item 3",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         },
         {
@@ -294,7 +390,12 @@
           Span: 4,
           Item: {
             Title: "Col 4 - Item 4",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         },
         {
@@ -302,7 +403,12 @@
           Span: 2,
           Item: {
             Title: "Col 4 - Item 5",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         },
         {
@@ -310,7 +416,12 @@
           Span: 1,
           Item: {
             Title: "Col 4 - Item 6",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         }
       ]
@@ -324,7 +435,12 @@
           Span: 3,
           Item: {
             Title: "Col 5 - Item 1",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         },
         {
@@ -332,7 +448,12 @@
           Span: 1,
           Item: {
             Title: "Col 5 - Item 2",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         },
         {
@@ -340,7 +461,12 @@
           Span: 2,
           Item: {
             Title: "Col 5 - Item 3",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         },
         {
@@ -348,7 +474,12 @@
           Span: 4,
           Item: {
             Title: "Col 5 - Item 4",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         },
         {
@@ -356,7 +487,12 @@
           Span: 2,
           Item: {
             Title: "Col 5 - Item 5",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         },
         {
@@ -364,7 +500,12 @@
           Span: 1,
           Item: {
             Title: "Col 5 - Item 6",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         }
       ]
@@ -378,7 +519,12 @@
           Span: 3,
           Item: {
             Title: "Col 6 - Item 1",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         },
         {
@@ -386,7 +532,12 @@
           Span: 1,
           Item: {
             Title: "Col 6 - Item 2",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         },
         {
@@ -394,7 +545,12 @@
           Span: 2,
           Item: {
             Title: "Col 6 - Item 3",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         },
         {
@@ -402,7 +558,12 @@
           Span: 4,
           Item: {
             Title: "Col 6 - Item 4",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         },
         {
@@ -410,7 +571,12 @@
           Span: 2,
           Item: {
             Title: "Col 6 - Item 5",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         },
         {
@@ -418,47 +584,77 @@
           Span: 1,
           Item: {
             Title: "Col 6 - Item 6",
-            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
           }
         }
       ]
     },
   ];
 
-
+  const container = document.getElementById('container');
   generateGrid(data);
 
+  // Get data from Service / Mock and generate basic HTML for grid system
   function generateGrid(data) {
     let html = '';
 
-    let finalCol = data.length;
+    const cardsAndTotalCol = generateCardsAndCalcTotalCol(data);
+    html += cardsAndTotalCol.cardsHtml;
+    const totalCol = cardsAndTotalCol.totalCol;
 
+    // Generate Header
+    const headerHtml = generateHeader(data, totalCol);
+    html += headerHtml;
+
+    // Specify how many columns for the grid and width for each column
+    container.style['grid-template-columns'] = `repeat(${totalCol}, 313px)`;
+
+    container.innerHTML = html;
+  }
+
+  function generateCardsAndCalcTotalCol(data) {
+    let totalCol = data.length;
+
+    let cardsHtml = '';
     for (let i = 0; i < data.length; i++) {
-      const items = data[i]['Data'];
-      for (let j = 0; j < items.length; j++) {
+      const cards = data[i]['Data'];
+
+      for (let j = 0; j < cards.length; j++) {
         // There are some cards need more columns than length of 'data' to display
-        // So get the final columns need to render all card with its span
-        const numberOfCol = data[i]['Col'] + items[j]['Span'];
-        if (numberOfCol > finalCol) {
-          finalCol = numberOfCol;
+        // So calculate the final columns need to render all cards with its span
+        const numberOfCol = data[i]['Col'] + cards[j]['Span'] - 1; // -1 because we already have 1 column for card where it's standing. Eg: Col 6, Span 1: need total 6 Cols.
+        if (numberOfCol > totalCol) {
+          totalCol = numberOfCol;
         }
 
-        const item = `
-            <div class="item col-${i + 1}" style="grid-column: ${data[i]['Col']} / span ${items[j]['Span']}; }">
+        // Generate Card. Specify which its column and how many columns it will span
+        const card = `
+            <div class="card col-${i + 1}" style="grid-column: ${data[i]['Col']} / span ${cards[j]['Span']}; }">
                 <div class="content">
-                    <h4>${items[j]['Item']['Title']}</h4>
+                    <h4>${cards[j]['Item']['Title']}</h4>
                     <div class="description">
-                        ${items[j]['Item']['Description']}
+                        ${cards[j]['Item']['Description']}
                     </div>
 
                 </div>
             </div>
         `;
-        html += item;
+        cardsHtml += card;
       }
     }
 
-    // Generate Header
+    return {
+      cardsHtml: cardsHtml,
+      totalCol: totalCol
+    }
+  }
+
+  function generateHeader(data, totalCol) {
     let lastColFromData = 0;
     const monthNames = [
       "January", "February", "March",
@@ -467,55 +663,63 @@
       "November", "December"
     ];
 
-    for (let i = 0; i < finalCol; i++) {
+    let headerHtml = '';
+
+    for (let i = 0; i < totalCol; i++) {
       let header = '';
 
-      if (i < data.length) { // Get data from JSON
+      if (i < data.length) { // Using data from JSON
         header = `
-            <div class="item header" style="grid-column: ${data[i]['Col']} / span 1; grid-row-start: 1">
+            <div class="card header" style="grid-column: ${data[i]['Col']} / span 1; grid-row-start: 1">
                 <div class="content">${data[i]['MonthYear']}</div>
             </div>
         `;
         lastColFromData = i;
-      } else { // Generate more header columns if not enough
-        const lastMonthYearFromData = new Date(data[lastColFromData]['MonthYear']);
-        lastMonthYearFromData.setMonth(lastMonthYearFromData.getMonth() + (i - lastColFromData - 1));
+      } else { // Generate more columns with continuous months if not enough
+        console.log(data[lastColFromData]['MonthYear'].split(" ").join(" 1 "))
+        const lastMonthYearFromData = new Date(data[lastColFromData]['MonthYear'].split(" ").join(" 1 "));
+        lastMonthYearFromData.setMonth(lastMonthYearFromData.getMonth() + (i - lastColFromData));
         header = `
-            <div class="item header" style="grid-column: ${i} / span 1; grid-row-start: 1">
+            <div class="card header" style="grid-column: ${i + 1} / span 1; grid-row-start: 1">
                 <div class="content">${monthNames[lastMonthYearFromData.getMonth()]} ${lastMonthYearFromData.getFullYear()} </div>
             </div>
         `;
       }
 
-      html += header;
+      headerHtml += header;
     }
 
-    const container = document.getElementById('container');
-    container.style['grid-template-columns'] = `repeat(${finalCol}, 313px)`;
-    container.innerHTML = html;
-
+    return headerHtml;
   }
 
-  var items = document.querySelectorAll('.item:not(.header)');
+  // Select all cards
+  var cards = document.querySelectorAll('.card:not(.header)');
 
-  for (let i = 0; i < items.length; i++) {
-    items[i].addEventListener('click', function (e) {
+  for (let i = 0; i < cards.length; i++) {
+    cards[i].addEventListener('click', function (e) {
+      // Calculate the row and column of clicking card base on with and height of each fragment. Remember each card may span to several fragments
       const gridColumns = window.getComputedStyle(this.parentElement).gridTemplateColumns.split(" ");
-      const gridRows = window.getComputedStyle(this.parentElement).gridTemplateRows.split(" ");
-      const numColumns = gridColumns.length;
-      const numRows = gridRows.length;
+      const containerStyle = window.getComputedStyle(this.parentElement);
+      const gridRows = window.getComputedStyle(this.parentElement).gridTemplateRows
       const xPosInGrid = this.getBoundingClientRect().left - this.parentElement.getBoundingClientRect().left;
       const yPosInGrid = this.getBoundingClientRect().top - this.parentElement.getBoundingClientRect().top;
-      const gridRowHeight = parseFloat(gridRows[0]) + parseFloat(window.getComputedStyle(this.parentElement).gridRowGap);
+      const gridRowHeight = parseFloat(containerStyle.gridAutoRows) + parseFloat(window.getComputedStyle(this.parentElement).gridRowGap);
       const gridColumnWidth = parseFloat(gridColumns[0]) + parseFloat(window.getComputedStyle(this.parentElement).gridColumnGap);
       const thisRow = Math.round(yPosInGrid / gridRowHeight) + 1;
       const thisColumn = Math.round(xPosInGrid / gridColumnWidth) + 1;
 
-      console.log('thisRow', thisRow)
-      console.log('thisColumn', thisColumn)
+      // console.log('gridColumns', gridColumns)
+      // console.log('gridRows', gridRows)
+      // console.log('xPosInGrid', xPosInGrid)
+      // console.log('yPosInGrid', yPosInGrid)
+      // console.log('gridRowHeight', gridRowHeight)
+      // console.log('gridColumnWidth', gridColumnWidth)
+      // console.log('thisRow', thisRow)
+      // console.log('thisColumn', thisColumn)
+      // console.log('window.getComputedStyle(this.parentElement)', window.getComputedStyle(this.parentElement))
 
-
-      for (let i of items) {
+        // Reset all other cards
+      for (let i of cards) {
         if (i !== this) {
           // Set all others cards to auto so 'dense' packaging will easy to fill the gap hole if possible
           i.style['grid-row-start'] = 'auto';
@@ -527,24 +731,28 @@
 
       this.style['grid-row-start'] = thisRow;
       this.classList.toggle('expanded');
+
       resizeAllGridItems();
       resizeGridItem(this);
+
+      // document.documentElement.scrollTop = yPosInGrid;
     })
   }
 
-
-  function resizeGridItem(item) {
-    const grid = document.getElementById('container');
-    const rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
-    const rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
-    const rowSpan = Math.ceil((item.querySelector('.content').getBoundingClientRect().height + rowGap) / (rowHeight + rowGap));
-    item.style.gridRowEnd = "span " + rowSpan;
+  // Resize the card to fit its content
+  const rowHeight = parseInt(window.getComputedStyle(container).getPropertyValue('grid-auto-rows'));
+  const rowGap = parseInt(window.getComputedStyle(container).getPropertyValue('grid-row-gap'));
+  function resizeGridItem(card) {
+    // Calculate number of span for the card base on the actual height of the card
+    console.log('card.querySelector(\'.content\').getBoundingClientRect().height',card.querySelector('.content').getBoundingClientRect().height)
+    const rowSpan = Math.ceil((card.querySelector('.content').getBoundingClientRect().height + rowGap) / (rowHeight + rowGap));
+    card.style.gridRowEnd = "span " + rowSpan;
   }
 
   function resizeAllGridItems() {
-    const allItems = document.getElementsByClassName("item");
-    for (x = 0; x < allItems.length; x++) {
-      resizeGridItem(allItems[x]);
+    const allItems = document.getElementsByClassName("card");
+    for (let i = 0; i < allItems.length; i++) {
+      resizeGridItem(allItems[i]);
     }
   }
 
