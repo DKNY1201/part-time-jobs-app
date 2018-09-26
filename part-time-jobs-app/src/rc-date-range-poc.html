@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test</title>
+    <style type="text/css">
+        html, body {
+            background-color: #ffeead;
+            margin: 10px;
+        }
+
+        #container > div.col-1 {
+            background-color: #F7717D;
+        }
+
+        #container > div.col-2 {
+            background-color: #88d8b0;
+        }
+
+        #container > div.col-3 {
+            background-color: #D0A98F;
+        }
+
+        #container > div.col-4 {
+            background-color: #ffcc5c;
+        }
+
+        #container > div.col-5 {
+            background-color: #C7D9B7;
+        }
+
+        #container > div.col-6 {
+            background-color: #4D243D;
+        }
+
+        #container {
+            display: grid;
+            grid-auto-rows: 10px;
+            grid-gap: 10px;
+            grid-auto-flow: column;
+        }
+
+        .item {
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+            color: #ffeead;
+            overflow: hidden;
+        }
+
+        .item.header {
+            justify-content: center;
+        }
+
+        .item h4 {
+            font-size: 1em;
+            text-align: center;
+        }
+
+        .item .description {
+            font-size: 14px;
+            display: none;
+        }
+
+        .item.expanded .description {
+            display: block;
+        }
+
+        .header {
+            background-color: #000 !important;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+</div>
+
+<script>
+  const data = [
+    {
+      MonthYear: "July 2018",
+      Col: 1,
+      Data: [
+        {
+          Row: 1,
+          Span: 1,
+          Item: {
+            Title: "Col 1 - Item 1",
+            Description: `
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
+          }
+        },
+        {
+          Row: 2,
+          Span: 2,
+          Item: {
+            Title: "Col 1 - Item 2",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        },
+        {
+          Row: 3,
+          Span: 3,
+          Item: {
+            Title: "Col 1 - Item 3",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        },
+        {
+          Row: 4,
+          Span: 1,
+          Item: {
+            Title: "Col 1 - Item 4",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        },
+        {
+          Row: 5,
+          Span: 1,
+          Item: {
+            Title: "Col 1 - Item 5",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        },
+        {
+          Row: 6,
+          Span: 1,
+          Item: {
+            Title: "Col 1 - Item 6",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        }
+      ]
+    },
+    {
+      MonthYear: "August 2018",
+      Col: 2,
+      Data: [
+        {
+          Row: 1,
+          Span: 1,
+          Item: {
+            Title: "Col 2 - Item 1",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        },
+        {
+          Row: 2,
+          Span: 2,
+          Item: {
+            Title: "Col 2 - Item 2",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        },
+        {
+          Row: 3,
+          Span: 1,
+          Item: {
+            Title: "Col 2 - Item 3",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        },
+        {
+          Row: 4,
+          Span: 3,
+          Item: {
+            Title: "Col 2 - Item 4",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        },
+        {
+          Row: 5,
+          Span: 3,
+          Item: {
+            Title: "Col 2 - Item 5",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        },
+        {
+          Row: 6,
+          Span: 1,
+          Item: {
+            Title: "Col 2 - Item 6",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        }
+      ]
+    },
+    {
+      MonthYear: "September 2018",
+      Col: 3,
+      Data: [
+        {
+          Row: 1,
+          Span: 3,
+          Item: {
+            Title: "Col 3 - Item 1",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        },
+        {
+          Row: 2,
+          Span: 1,
+          Item: {
+            Title: "Col 3 - Item 2",
+            Description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a,</p>
+            <p>placerat sed justo. Suspendisse sed orci quis lectus ornare auctor.</p>`
+          }
+        },
+        {
+          Row: 3,
+          Span: 2,
+          Item: {
+            Title: "Col 3 - Item 3",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        },
+        {
+          Row: 4,
+          Span: 4,
+          Item: {
+            Title: "Col 3 - Item 4",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        },
+        {
+          Row: 5,
+          Span: 2,
+          Item: {
+            Title: "Col 3 - Item 5",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        },
+        {
+          Row: 6,
+          Span: 1,
+          Item: {
+            Title: "Col 3 - Item 6",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        }
+      ]
+    },
+    {
+      MonthYear: "October 2018",
+      Col: 4,
+      Data: [
+        {
+          Row: 1,
+          Span: 3,
+          Item: {
+            Title: "Col 4 - Item 1",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        },
+        {
+          Row: 2,
+          Span: 1,
+          Item: {
+            Title: "Col 4 - Item 2",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        },
+        {
+          Row: 3,
+          Span: 2,
+          Item: {
+            Title: "Col 4 - Item 3",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        },
+        {
+          Row: 4,
+          Span: 4,
+          Item: {
+            Title: "Col 4 - Item 4",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        },
+        {
+          Row: 5,
+          Span: 2,
+          Item: {
+            Title: "Col 4 - Item 5",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        },
+        {
+          Row: 6,
+          Span: 1,
+          Item: {
+            Title: "Col 4 - Item 6",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        }
+      ]
+    },
+    {
+      MonthYear: "November 2018",
+      Col: 5,
+      Data: [
+        {
+          Row: 1,
+          Span: 3,
+          Item: {
+            Title: "Col 5 - Item 1",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        },
+        {
+          Row: 2,
+          Span: 1,
+          Item: {
+            Title: "Col 5 - Item 2",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        },
+        {
+          Row: 3,
+          Span: 2,
+          Item: {
+            Title: "Col 5 - Item 3",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        },
+        {
+          Row: 4,
+          Span: 4,
+          Item: {
+            Title: "Col 5 - Item 4",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        },
+        {
+          Row: 5,
+          Span: 2,
+          Item: {
+            Title: "Col 5 - Item 5",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        },
+        {
+          Row: 6,
+          Span: 1,
+          Item: {
+            Title: "Col 5 - Item 6",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        }
+      ]
+    },
+    {
+      MonthYear: "December 2018",
+      Col: 6,
+      Data: [
+        {
+          Row: 1,
+          Span: 3,
+          Item: {
+            Title: "Col 6 - Item 1",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        },
+        {
+          Row: 2,
+          Span: 1,
+          Item: {
+            Title: "Col 6 - Item 2",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        },
+        {
+          Row: 3,
+          Span: 2,
+          Item: {
+            Title: "Col 6 - Item 3",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        },
+        {
+          Row: 4,
+          Span: 4,
+          Item: {
+            Title: "Col 6 - Item 4",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        },
+        {
+          Row: 5,
+          Span: 2,
+          Item: {
+            Title: "Col 6 - Item 5",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        },
+        {
+          Row: 6,
+          Span: 1,
+          Item: {
+            Title: "Col 6 - Item 6",
+            Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quam ante, sagittis vitae malesuada a, placerat sed justo. Suspendisse sed orci quis lectus ornare auctor."
+          }
+        }
+      ]
+    },
+  ];
+
+
+  generateGrid(data);
+
+  function generateGrid(data) {
+    let html = '';
+
+    let finalCol = data.length;
+
+    for (let i = 0; i < data.length; i++) {
+      const items = data[i]['Data'];
+      for (let j = 0; j < items.length; j++) {
+        // There are some cards need more columns than length of 'data' to display
+        // So get the final columns need to render all card with its span
+        const numberOfCol = data[i]['Col'] + items[j]['Span'];
+        if (numberOfCol > finalCol) {
+          finalCol = numberOfCol;
+        }
+
+        const item = `
+            <div class="item col-${i + 1}" style="grid-column: ${data[i]['Col']} / span ${items[j]['Span']}; }">
+                <div class="content">
+                    <h4>${items[j]['Item']['Title']}</h4>
+                    <div class="description">
+                        ${items[j]['Item']['Description']}
+                    </div>
+
+                </div>
+            </div>
+        `;
+        html += item;
+      }
+    }
+
+    // Generate Header
+    let lastColFromData = 0;
+    const monthNames = [
+      "January", "February", "March",
+      "April", "May", "June", "July",
+      "August", "September", "October",
+      "November", "December"
+    ];
+
+    for (let i = 0; i < finalCol; i++) {
+      let header = '';
+
+      if (i < data.length) { // Get data from JSON
+        header = `
+            <div class="item header" style="grid-column: ${data[i]['Col']} / span 1; grid-row-start: 1">
+                <div class="content">${data[i]['MonthYear']}</div>
+            </div>
+        `;
+        lastColFromData = i;
+      } else { // Generate more header columns if not enough
+        const lastMonthYearFromData = new Date(data[lastColFromData]['MonthYear']);
+        lastMonthYearFromData.setMonth(lastMonthYearFromData.getMonth() + (i - lastColFromData - 1));
+        header = `
+            <div class="item header" style="grid-column: ${i} / span 1; grid-row-start: 1">
+                <div class="content">${monthNames[lastMonthYearFromData.getMonth()]} ${lastMonthYearFromData.getFullYear()} </div>
+            </div>
+        `;
+      }
+
+      html += header;
+    }
+
+    const container = document.getElementById('container');
+    container.style['grid-template-columns'] = `repeat(${finalCol}, 313px)`;
+    container.innerHTML = html;
+
+  }
+
+  var items = document.querySelectorAll('.item:not(.header)');
+
+  for (let i = 0; i < items.length; i++) {
+    items[i].addEventListener('click', function (e) {
+      const gridColumns = window.getComputedStyle(this.parentElement).gridTemplateColumns.split(" ");
+      const gridRows = window.getComputedStyle(this.parentElement).gridTemplateRows.split(" ");
+      const numColumns = gridColumns.length;
+      const numRows = gridRows.length;
+      const xPosInGrid = this.getBoundingClientRect().left - this.parentElement.getBoundingClientRect().left;
+      const yPosInGrid = this.getBoundingClientRect().top - this.parentElement.getBoundingClientRect().top;
+      const gridRowHeight = parseFloat(gridRows[0]) + parseFloat(window.getComputedStyle(this.parentElement).gridRowGap);
+      const gridColumnWidth = parseFloat(gridColumns[0]) + parseFloat(window.getComputedStyle(this.parentElement).gridColumnGap);
+      const thisRow = Math.round(yPosInGrid / gridRowHeight) + 1;
+      const thisColumn = Math.round(xPosInGrid / gridColumnWidth) + 1;
+
+      console.log('thisRow', thisRow)
+      console.log('thisColumn', thisColumn)
+
+
+      for (let i of items) {
+        if (i !== this) {
+          // Set all others cards to auto so 'dense' packaging will easy to fill the gap hole if possible
+          i.style['grid-row-start'] = 'auto';
+
+          // Close all other cards
+          i.classList.remove('expanded');
+        }
+      }
+
+      this.style['grid-row-start'] = thisRow;
+      this.classList.toggle('expanded');
+      resizeAllGridItems();
+      resizeGridItem(this);
+    })
+  }
+
+
+  function resizeGridItem(item) {
+    const grid = document.getElementById('container');
+    const rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
+    const rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
+    const rowSpan = Math.ceil((item.querySelector('.content').getBoundingClientRect().height + rowGap) / (rowHeight + rowGap));
+    item.style.gridRowEnd = "span " + rowSpan;
+  }
+
+  function resizeAllGridItems() {
+    const allItems = document.getElementsByClassName("item");
+    for (x = 0; x < allItems.length; x++) {
+      resizeGridItem(allItems[x]);
+    }
+  }
+
+  resizeAllGridItems();
+
+</script>
+</body>
+</html>
