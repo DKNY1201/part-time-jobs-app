@@ -597,7 +597,10 @@
   ];
 
   const container = document.getElementById('container');
+
   generateGrid(data);
+  registerEventForCard();
+  resizeAllGridItems();
 
   // Get data from Service / Mock and generate basic HTML for grid system
   function generateGrid(data) {
@@ -634,7 +637,7 @@
 
         // Generate Card. Specify which its column and how many columns it will span
         const card = `
-            <div class="card col-${i + 1}" style="grid-column: ${data[i]['Col']} / span ${cards[j]['Span']}; }">
+            <div class="card col-${i + 1}" style="grid-column: ${data[i]['Col']} / span ${cards[j]['Span']};">
                 <div class="content">
                     <h4>${cards[j]['Item']['Title']}</h4>
                     <div class="description">
@@ -676,7 +679,6 @@
         `;
         lastColFromData = i;
       } else { // Generate more columns with continuous months if not enough
-        console.log(data[lastColFromData]['MonthYear'].split(" ").join(" 1 "))
         const lastMonthYearFromData = new Date(data[lastColFromData]['MonthYear'].split(" ").join(" 1 "));
         lastMonthYearFromData.setMonth(lastMonthYearFromData.getMonth() + (i - lastColFromData));
         header = `
@@ -693,58 +695,62 @@
   }
 
   // Select all cards
-  var cards = document.querySelectorAll('.card:not(.header)');
 
-  for (let i = 0; i < cards.length; i++) {
-    cards[i].addEventListener('click', function (e) {
-      // Calculate the row and column of clicking card base on with and height of each fragment. Remember each card may span to several fragments
-      const gridColumns = window.getComputedStyle(this.parentElement).gridTemplateColumns.split(" ");
-      const containerStyle = window.getComputedStyle(this.parentElement);
-      const gridRows = window.getComputedStyle(this.parentElement).gridTemplateRows
-      const xPosInGrid = this.getBoundingClientRect().left - this.parentElement.getBoundingClientRect().left;
-      const yPosInGrid = this.getBoundingClientRect().top - this.parentElement.getBoundingClientRect().top;
-      const gridRowHeight = parseFloat(containerStyle.gridAutoRows) + parseFloat(window.getComputedStyle(this.parentElement).gridRowGap);
-      const gridColumnWidth = parseFloat(gridColumns[0]) + parseFloat(window.getComputedStyle(this.parentElement).gridColumnGap);
-      const thisRow = Math.round(yPosInGrid / gridRowHeight) + 1;
-      const thisColumn = Math.round(xPosInGrid / gridColumnWidth) + 1;
+  function registerEventForCard() {
+    var cards = document.querySelectorAll('.card:not(.header)');
 
-      // console.log('gridColumns', gridColumns)
-      // console.log('gridRows', gridRows)
-      // console.log('xPosInGrid', xPosInGrid)
-      // console.log('yPosInGrid', yPosInGrid)
-      // console.log('gridRowHeight', gridRowHeight)
-      // console.log('gridColumnWidth', gridColumnWidth)
-      // console.log('thisRow', thisRow)
-      // console.log('thisColumn', thisColumn)
-      // console.log('window.getComputedStyle(this.parentElement)', window.getComputedStyle(this.parentElement))
+    for (let i = 0; i < cards.length; i++) {
+      cards[i].addEventListener('click', function (e) {
+        // Calculate the row and column of clicking card base on with and height of each fragment. Remember each card may span to several fragments
+        const gridColumns = window.getComputedStyle(this.parentElement).gridTemplateColumns.split(" ");
+        const containerStyle = window.getComputedStyle(this.parentElement);
+        const gridRows = window.getComputedStyle(this.parentElement).gridTemplateRows
+        const xPosInGrid = this.getBoundingClientRect().left - this.parentElement.getBoundingClientRect().left;
+        const yPosInGrid = this.getBoundingClientRect().top - this.parentElement.getBoundingClientRect().top;
+        const gridRowHeight = parseFloat(containerStyle.gridAutoRows) + parseFloat(window.getComputedStyle(this.parentElement).gridRowGap);
+        const gridColumnWidth = parseFloat(gridColumns[0]) + parseFloat(window.getComputedStyle(this.parentElement).gridColumnGap);
+        const thisRow = Math.round(yPosInGrid / gridRowHeight) + 1;
+        const thisColumn = Math.round(xPosInGrid / gridColumnWidth) + 1;
+
+        // console.log('gridColumns', gridColumns)
+        // console.log('gridRows', gridRows)
+        // console.log('xPosInGrid', xPosInGrid)
+        // console.log('yPosInGrid', yPosInGrid)
+        // console.log('gridRowHeight', gridRowHeight)
+        // console.log('gridColumnWidth', gridColumnWidth)
+        // console.log('thisRow', thisRow)
+        // console.log('thisColumn', thisColumn)
+        // console.log('window.getComputedStyle(this.parentElement)', window.getComputedStyle(this.parentElement))
 
         // Reset all other cards
-      for (let i of cards) {
-        if (i !== this) {
-          // Set all others cards to auto so 'dense' packaging will easy to fill the gap hole if possible
-          i.style['grid-row-start'] = 'auto';
+        for (let i of cards) {
+          if (i !== this) {
+            // Set all others cards to auto so 'dense' packaging will easy to fill the gap hole if possible
+            i.style['grid-row-start'] = 'auto';
 
-          // Close all other cards
-          i.classList.remove('expanded');
+            // Close all other cards
+            // i.classList.remove('expanded');
+          }
         }
-      }
 
-      this.style['grid-row-start'] = thisRow;
-      this.classList.toggle('expanded');
+        this.style['grid-row-start'] = thisRow;
+        this.classList.toggle('expanded');
 
-      resizeAllGridItems();
-      resizeGridItem(this);
+        resizeAllGridItems();
+        resizeGridItem(this);
 
-      // document.documentElement.scrollTop = yPosInGrid;
-    })
+        // document.documentElement.scrollTop = yPosInGrid;
+      })
+    }
   }
 
+
   // Resize the card to fit its content
-  const rowHeight = parseInt(window.getComputedStyle(container).getPropertyValue('grid-auto-rows'));
-  const rowGap = parseInt(window.getComputedStyle(container).getPropertyValue('grid-row-gap'));
   function resizeGridItem(card) {
+    const rowHeight = parseInt(window.getComputedStyle(container).getPropertyValue('grid-auto-rows'));
+    const rowGap = parseInt(window.getComputedStyle(container).getPropertyValue('grid-row-gap'));
+
     // Calculate number of span for the card base on the actual height of the card
-    console.log('card.querySelector(\'.content\').getBoundingClientRect().height',card.querySelector('.content').getBoundingClientRect().height)
     const rowSpan = Math.ceil((card.querySelector('.content').getBoundingClientRect().height + rowGap) / (rowHeight + rowGap));
     card.style.gridRowEnd = "span " + rowSpan;
   }
@@ -755,8 +761,6 @@
       resizeGridItem(allItems[i]);
     }
   }
-
-  resizeAllGridItems();
 
 </script>
 </body>
