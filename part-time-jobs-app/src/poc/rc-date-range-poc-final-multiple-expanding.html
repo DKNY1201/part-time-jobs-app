@@ -68,6 +68,7 @@
             background-color: #354052 !important;
             color: white !important;
             font-size: 18px;
+            grid-row-end: 4;
         }
 
         .card .content {
@@ -80,6 +81,7 @@
 
         .card .main-area img{
             width: 120px;
+            height: 120px;
             float: left;
             margin-right: 10px;
         }
@@ -1321,7 +1323,7 @@
   }
 
   function resizeAllGridItems() {
-    const allItems = document.getElementsByClassName("card");
+    const allItems = document.querySelectorAll('.card:not(.header)');
     for (let i = 0; i < allItems.length; i++) {
       resizeGridItem(allItems[i]);
     }

@@ -68,6 +68,7 @@
             background-color: #354052 !important;
             color: white !important;
             font-size: 18px;
+            grid-row-end: 4;
         }
 
         .card .content {
@@ -80,6 +81,7 @@
 
         .card .main-area img{
             width: 120px;
+            height: 120px;
             float: left;
             margin-right: 10px;
         }
@@ -1145,8 +1147,9 @@
   const container = document.getElementById('container');
 
   generateGrid(data);
-  registerEventForCard();
   resizeAllGridItems();
+  registerEventForCard();
+
 
   // Get data from Service / Mock and generate basic HTML for grid system
   function generateGrid(data) {
@@ -1321,7 +1324,7 @@
   }
 
   function resizeAllGridItems() {
-    const allItems = document.getElementsByClassName("card");
+    const allItems = document.querySelectorAll('.card:not(.header)');
     for (let i = 0; i < allItems.length; i++) {
       resizeGridItem(allItems[i]);
     }
