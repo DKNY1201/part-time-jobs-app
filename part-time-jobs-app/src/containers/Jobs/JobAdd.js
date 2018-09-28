@@ -3,46 +3,154 @@ import {connect} from 'react-redux';
 
 
 class JobAdd extends Component {
+  state = {
+    form: {
+      name: {
+        elementType: 'input',
+        elementConfig: {
+          type: 'text',
+          placeholder: 'Name'
+        },
+        value: '',
+        validation: {
+          rules: {
+            required: true
+          },
+          valid: false
+        },
+        touch: false
+      },
+      description: {
+        elementType: 'textarea',
+        elementConfig: {
+          placeholder: 'Description'
+        },
+        value: '',
+        validation: {
+          rules: {
+            required: true
+          },
+          valid: false
+        },
+        touch: false
+      },
+      category: {
+        elementType: 'select',
+        elementConfig: {
+          options: [
+            {value: 1, name: 'Clean Up'},
+            {value: 2, name: 'Grass Cutting'},
+            {value: 3, name: 'Editing'},
+            {value: 4, name: 'Writing'},
+            {value: 5, name: 'Date Entry'},
+            {value: 6, name: 'Event Planning'},
+            {value: 7, name: 'Fixing Machine'},
+            {value: 8, name: 'Advertising'},
+            {value: 9, name: 'Washing Car'}
+          ]
+        },
+        validation: {
+          rules: {
+            required: true
+          },
+          valid: true
+        },
+        value: 'fastest'
+      },
+      location: {
+        elementType: 'input',
+        elementConfig: {
+          type: 'text',
+          placeholder: 'Location'
+        },
+        value: '',
+        validation: {
+          rules: {
+            required: true
+          },
+          valid: false
+        },
+        touch: false
+      },
+      hourlyRate: {
+        elementType: 'input',
+        elementConfig: {
+          type: 'number',
+          placeholder: 'Hourly rate'
+        },
+        value: '',
+        validation: {
+          rules: {
+            required: true,
+            number: true
+          },
+          valid: false
+        },
+        touch: false
+      },
+      preferredDate: {
+        elementType: 'input',
+        elementConfig: {
+          type: 'text',
+          placeholder: 'Preferred Date'
+        },
+        value: '',
+        validation: {
+          rules: {
+            required: true
+          },
+          valid: false
+        },
+        touch: false
+      },
+      preferredTime: {
+        elementType: 'input',
+        elementConfig: {
+          type: 'text',
+          placeholder: 'Preferred Time'
+        },
+        value: '',
+        validation: {
+          rules: {
+            required: true
+          },
+          valid: false
+        },
+        touch: false
+      },
+    }
+  }
+
+  constructor(props) {
+    super(props);
+  }
+
+  handleFormSubmit() {
+
+  }
+
   render() {
+    const formElementArray = [];
+
+    for (let key in this.state.form) {
+      formElementArray.push({
+        id: key,
+        config: this.state.form[key]
+      });
+    }
+
+    const formData = (
+      <form onSubmit={this.handleFormSubmit}>
+        {
+          formElementArray.map(formElement => <input key={formElement.id} />)
+        }
+      </form>
+    )
     return (
       <Fragment>
         <h1>Job Adding</h1>
-        <form action="">
-          <div className="form-row">
-            <label htmlFor="">Name</label>
-            <input type="text" placeholder="Name"/>
-          </div>
-          <div className="form-row">
-            <label htmlFor="">Description</label>
-            <textarea name="" id="" cols="30" rows="10" placeholder="Description"></textarea>
-          </div>
-          <div className="form-row">
-            <label htmlFor="">Category</label>
-            <input type="text" placeholder="Category"/>
-          </div>
-          <div className="form-row">
-            <label htmlFor="">Location</label>
-            <input type="text" placeholder="Location"/>
-          </div>
-          <div className="form-row">
-            <label htmlFor="">Hour rate</label>
-            <input type="text" placeholder="Hour rate"/>
-          </div>
-          <div className="form-row">
-            <label htmlFor="">Preferred Date</label>
-            <input type="text" placeholder="Preferred Date"/>
-          </div>
-          <div className="form-row">
-            <label htmlFor="">Preferred Time</label>
-            <input type="text" placeholder="Preferred Time"/>
-          </div>
-          <div className="form-row">
-            <button type="button">Add</button>
-          </div>
-        </form>
+        {formData}
       </Fragment>
-      
-      
     )
   }
 }
