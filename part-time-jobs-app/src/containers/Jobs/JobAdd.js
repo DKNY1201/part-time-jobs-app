@@ -13,11 +13,9 @@ class JobAdd extends Component {
         },
         value: '',
         validation: {
-          rules: {
-            required: true
-          },
-          valid: false
+          required: true
         },
+        valid: false,
         touch: false
       },
       description: {
@@ -27,11 +25,9 @@ class JobAdd extends Component {
         },
         value: '',
         validation: {
-          rules: {
-            required: true
-          },
-          valid: false
+          required: true
         },
+        valid: false,
         touch: false
       },
       category: {
@@ -49,13 +45,12 @@ class JobAdd extends Component {
             {value: 9, name: 'Washing Car'}
           ]
         },
+        value: '',
         validation: {
-          rules: {
-            required: true
-          },
-          valid: true
+          required: true
         },
-        value: 'fastest'
+        valid: false,
+        touch: false
       },
       location: {
         elementType: 'input',
@@ -65,11 +60,9 @@ class JobAdd extends Component {
         },
         value: '',
         validation: {
-          rules: {
-            required: true
-          },
-          valid: false
+          required: true
         },
+        valid: false,
         touch: false
       },
       hourlyRate: {
@@ -80,12 +73,10 @@ class JobAdd extends Component {
         },
         value: '',
         validation: {
-          rules: {
-            required: true,
-            number: true
-          },
-          valid: false
+          required: true,
+          number: true
         },
+        valid: false,
         touch: false
       },
       preferredDate: {
@@ -96,11 +87,9 @@ class JobAdd extends Component {
         },
         value: '',
         validation: {
-          rules: {
-            required: true
-          },
-          valid: false
+          required: true
         },
+        valid: false,
         touch: false
       },
       preferredTime: {
@@ -111,11 +100,9 @@ class JobAdd extends Component {
         },
         value: '',
         validation: {
-          rules: {
-            required: true
-          },
-          valid: false
+          required: true
         },
+        valid: false,
         touch: false
       },
     }
