@@ -1,4 +1,5 @@
 import * as actionTypes from '../actions/actionTypes';
+import {updateObject} from '../../shared/utils';
 
 const initState = {
   jobs: [],
@@ -9,13 +10,12 @@ const initState = {
 const job = (state = initState, action) => {
   switch (action.type) {
     case actionTypes.JOB_ADD:
-      return {
-        ...state,
-        jobs: [...state.jobs, action.newJob]
-      }
+      const newJobs = [...state.jobs, action.data.job];
+      return updateObject(state, {jobs: newJobs});
+    case actionTypes.JOB_ADD_START:
+      return updateObject(state, {loading: true});
+    default: return state;
   }
-
-  return state;
 }
 
 export default job;

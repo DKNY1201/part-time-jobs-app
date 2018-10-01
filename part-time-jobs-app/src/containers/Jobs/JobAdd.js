@@ -1,6 +1,10 @@
 import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
 
+import Input from '../../components/UI/Input/Input';
+import Button from '../../components/UI/Button/Button';
+import {updateObject} from '../../shared/utils';
+import * as actions from '../../store/actions';
 
 class JobAdd extends Component {
   state = {
@@ -16,7 +20,8 @@ class JobAdd extends Component {
           required: true
         },
         valid: false,
-        touch: false
+        touch: false,
+        label: "Name"
       },
       description: {
         elementType: 'textarea',
@@ -28,7 +33,8 @@ class JobAdd extends Component {
           required: true
         },
         valid: false,
-        touch: false
+        touch: false,
+	      label: "Description"
       },
       category: {
         elementType: 'select',
@@ -38,7 +44,7 @@ class JobAdd extends Component {
             {value: 2, name: 'Grass Cutting'},
             {value: 3, name: 'Editing'},
             {value: 4, name: 'Writing'},
-            {value: 5, name: 'Date Entry'},
+            {value: 5, name: 'Data Entry'},
             {value: 6, name: 'Event Planning'},
             {value: 7, name: 'Fixing Machine'},
             {value: 8, name: 'Advertising'},
@@ -50,7 +56,8 @@ class JobAdd extends Component {
           required: true
         },
         valid: false,
-        touch: false
+        touch: false,
+	      label: "Category"
       },
       location: {
         elementType: 'input',
@@ -63,7 +70,8 @@ class JobAdd extends Component {
           required: true
         },
         valid: false,
-        touch: false
+        touch: false,
+	      label: "Location"
       },
       hourlyRate: {
         elementType: 'input',
@@ -77,7 +85,8 @@ class JobAdd extends Component {
           number: true
         },
         valid: false,
-        touch: false
+        touch: false,
+	      label: "Hourly rate"
       },
       preferredDate: {
         elementType: 'input',
@@ -90,7 +99,8 @@ class JobAdd extends Component {
           required: true
         },
         valid: false,
-        touch: false
+        touch: false,
+	      label: "Preferred Date"
       },
       preferredTime: {
         elementType: 'input',
@@ -103,17 +113,46 @@ class JobAdd extends Component {
           required: true
         },
         valid: false,
-        touch: false
+        touch: false,
+	      label: "Preferred Time"
       },
     }
   }
 
   constructor(props) {
     super(props);
+
+	  this.handleInputChange = this.handleInputChange.bind(this);
+	  this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
-  handleFormSubmit() {
+  handleFormSubmit(event) {
+    event.preventDefault();
 
+    const formData = {};
+
+    for (let key in this.state.form) {
+      formData[key] = this.state.form[key].value;
+    }
+
+    const data = {
+	    job: formData
+    }
+
+    this.props.onCreateJob(data);
+  }
+
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+
+    const updatedElement = updateObject(this.state.form[name], {value: value});
+    const updatedForm = updateObject(this.state.form, {[name]: updatedElement});
+
+    this.setState({
+      form: updatedForm
+    })
   }
 
   render() {
@@ -129,14 +168,25 @@ class JobAdd extends Component {
     const formData = (
       <form onSubmit={this.handleFormSubmit}>
         {
-          formElementArray.map(formElement => <input key={formElement.id} />)
+          formElementArray.map(formElement =>
+            <Input key={formElement.id}
+                   changed={this.handleInputChange}
+                   elementConfig={formElement.config.elementConfig}
+                   elementType={formElement.config.elementType}
+                   value={formElement.config.value}
+                   label={formElement.config.label}
+                   name={formElement.id}
+            />)
         }
+        <Button btnType="Success" clicked={this.handleFormSubmit}>Create job</Button>
       </form>
     )
     return (
       <Fragment>
         <h1>Job Adding</h1>
         {formData}
+        <h1>Job created</h1>
+        {this.props.job.jobs.map(job => <h4>{job.name}</h4>)}
       </Fragment>
     )
   }
@@ -144,13 +194,13 @@ class JobAdd extends Component {
 
 const mapPropsToState = state => {
   return {
-
+    job: state.job
   }
 }
 
 const mapDispatchToState = dispatch => {
   return {
-
+    onCreateJob: (data) => dispatch(actions.createJob(data))
   }
 }
 
