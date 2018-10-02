@@ -1,9 +1,12 @@
 import * as actionTypes from './actionTypes';
+import jobAxios from "../../axios/job-axios";
 
-export const createJob = (data) => {
+export const createJob = (newJobs) => {
 	return dispatch => {
 		dispatch(createJobStart());
-		dispatch(createJobSuccess(data));
+    jobAxios.post('', newJobs)
+      .then(response => dispatch(createJobSuccess(response.data.job)))
+			.catch(error => dispatch(createJobFail(error)))
 	}
 }
 
@@ -15,14 +18,15 @@ export const createJobStart = () => {
 
 export const createJobSuccess = (data) => {
 	return {
-		type: actionTypes.JOB_ADD,
+		type: actionTypes.JOB_ADD_SUCCESS,
 		data: data
 	}
 }
 
-export const createJobFail = () => {
+export const createJobFail = (error) => {
 	return {
-		type: actionTypes.JOB_ADD_FAIL
+		type: actionTypes.JOB_ADD_FAIL,
+		error: error
 	}
 }
 
