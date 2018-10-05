@@ -10,19 +10,27 @@ const input = (props) => {
     elementConfig,
     value,
     changed,
-    label
+    label,
+    valid,
+    touch,
+    shouldValidate
   } = props;
 
   let inputElement = null;
   let validationErrorMgs = null;
-  const elementFormClass = [styles.InputElement];
+  const formElementClass = [styles.InputElement];
+
+  if (!valid && touch && shouldValidate) {
+    formElementClass.push(styles.Invalid);
+    validationErrorMgs = <p className={styles.ValidationErrorMsg}>Please enter a valid value</p>;
+  }
 
   switch (elementType) {
     case 'input':
-      inputElement = <input name={name} onChange={changed} className={elementFormClass.join(' ')} {...elementConfig} value={value} />
+      inputElement = <input name={name} onChange={changed} {...elementConfig} value={value} />
       break;
     case 'textarea':
-      inputElement = <textarea name={name} onChange={changed} className={elementFormClass.join(' ')} {...elementConfig} value={value}></textarea>
+      inputElement = <textarea name={name} onChange={changed} className={formElementClass.join(' ')} {...elementConfig} value={value}></textarea>
       break;
     case 'select':
       inputElement = <select name={name} onChange={changed} value={value}>

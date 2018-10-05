@@ -1,6 +1,10 @@
 import React from 'react';
-import {mount} from 'enzyme';
+import {mount, configure, shallow} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
 import Input from './Input';
+
+configure({adapter: new Adapter()});
 
 describe('Input', () => {
   let props;
@@ -9,7 +13,7 @@ describe('Input', () => {
   const input = () => {
     if (!mountedInput) {
       mountedInput = mount(
-        <Input {...props}/>
+        <Input {...props} />
       )
     }
 
@@ -19,13 +23,30 @@ describe('Input', () => {
   beforeEach(() => {
     props = {
       elementType: undefined,
-      name: undefined,
-      elementConfig: undefined,
+      name: 'name',
+      elementConfig: {},
       value: undefined,
       changed: undefined,
-      label: undefined
+      label: 'label',
+      valid: undefined,
+      touch: undefined,
+      shouldValidate: undefined
     }
 
     mountedInput = undefined;
+  });
+
+  describe('when "elementType" is input', () => {
+    const wrapper = shallow(<Input/>);
+
+    beforeEach(() => {
+      props.elementType = 'input';
+    });
+
+    it('should render an input', () => {
+      console.log('input()',input().html())
+      console.log('input().find(\'input\').length',input().find('input').length)
+      expect(input().find('input').length).toBe(1);
+    });
   })
 });
