@@ -1,12 +1,13 @@
 import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
+// import PropTypes from 'prop-types';
 
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
 import {updateObject} from '../../shared/utils';
 import * as actions from '../../store/actions';
 
-class JobAdd extends Component {
+class JobCreating extends Component {
   state = {
     form: {
       name: {
@@ -192,6 +193,10 @@ class JobAdd extends Component {
   }
 }
 
+// JobCreating.propTypes = {
+//
+// }
+
 const mapPropsToState = state => {
   return {
     job: state.job
@@ -204,4 +209,4 @@ const mapDispatchToState = dispatch => {
   }
 }
 
-export default connect(mapPropsToState, mapDispatchToState)(JobAdd);
+export default connect(mapPropsToState, mapDispatchToState)(JobCreating);

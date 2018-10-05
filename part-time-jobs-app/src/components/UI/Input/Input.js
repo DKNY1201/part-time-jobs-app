@@ -1,22 +1,32 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './Input.css';
 
 const input = (props) => {
+  const {
+    elementType,
+    name,
+    elementConfig,
+    value,
+    changed,
+    label
+  } = props;
+
   let inputElement = null;
   let validationErrorMgs = null;
   const elementFormClass = [styles.InputElement];
 
-  switch (props.elementType) {
+  switch (elementType) {
     case 'input':
-      inputElement = <input name={props.name} onChange={props.changed} className={elementFormClass.join(' ')} {...props.elementConfig} value={props.value} />
+      inputElement = <input name={name} onChange={changed} className={elementFormClass.join(' ')} {...elementConfig} value={value} />
       break;
     case 'textarea':
-      inputElement = <textarea name={props.name} onChange={props.changed} className={elementFormClass.join(' ')} {...props.elementConfig} value={props.value}></textarea>
+      inputElement = <textarea name={name} onChange={changed} className={elementFormClass.join(' ')} {...elementConfig} value={value}></textarea>
       break;
     case 'select':
-      inputElement = <select name={props.name} onChange={props.changed} value={props.value}>
-        {props.elementConfig.options.map(option => <option key={option.value} value={option.value}>{option.name}</option>)}
+      inputElement = <select name={name} onChange={changed} value={value}>
+        {{...elementConfig}.options.map(option => <option key={option.value} value={option.value}>{option.name}</option>)}
       </select>
       break;
     default: break;
@@ -24,11 +34,20 @@ const input = (props) => {
 
   return (
     <div className={styles.Input}>
-      <label className={styles.Label}>{props.label}</label>
+      <label className={styles.Label}>{label}</label>
       {inputElement}
       {validationErrorMgs}
     </div>
   );
+}
+
+input.propTypes = {
+  elementType: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  elementConfig: PropTypes.object.isRequired,
+  value: PropTypes.string,
+  changed: PropTypes.func,
+  label: PropTypes.string.isRequired,
 }
 
 export default input;
