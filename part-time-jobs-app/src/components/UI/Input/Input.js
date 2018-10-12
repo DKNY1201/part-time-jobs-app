@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './Input.css';
+import * as resources from '../../../shared/resources';
 
 const input = (props) => {
   const {
@@ -19,25 +20,30 @@ const input = (props) => {
   let inputElement = null;
   let validationErrorMgs = null;
   const formElementClass = [styles.InputElement];
+  let errorMsg = null;
 
-  if (!valid && touch && shouldValidate) {
-    formElementClass.push(styles.Invalid);
-    validationErrorMgs = <p className={styles.ValidationErrorMsg}>Please enter a valid value</p>;
-  }
 
   switch (elementType) {
     case 'input':
-      inputElement = <input name={name} onChange={changed} {...elementConfig} value={value} />
+      inputElement = <input name={name} onChange={changed} {...elementConfig} value={value} />;
+      errorMsg = resources.INPUT_ERROR_MSG;
       break;
     case 'textarea':
-      inputElement = <textarea name={name} onChange={changed} className={formElementClass.join(' ')} {...elementConfig} value={value}></textarea>
+      inputElement = <textarea name={name} onChange={changed} className={formElementClass.join(' ')} {...elementConfig} value={value}></textarea>;
+      errorMsg = resources.TXT_ERROR_MSG;
       break;
     case 'select':
       inputElement = <select name={name} onChange={changed} value={value}>
         {{...elementConfig}.options.map(option => <option key={option.value} value={option.value}>{option.name}</option>)}
-      </select>
+      </select>;
+      errorMsg = resources.SELECT_ERROR_MSG;
       break;
     default: break;
+  }
+
+  if (!valid && touch && shouldValidate) {
+    formElementClass.push(styles.Invalid);
+    validationErrorMgs = <p className={styles.ValidationErrorMsg}>{errorMsg}</p>;
   }
 
   return (
